@@ -1,0 +1,25 @@
+<div>
+  <input type="text" [(ngModel)]="novoLivro" placeholder="Nome do livro">
+  <button (click)="adicionar()">Adicionar Livro</button>
+</div>
+
+<hr>
+
+<h3>Livros Cadastrados:</h3>
+
+<div *ngIf="listaDeLivros.length === 0">
+  Nenhum livro encontrado no banco de dados.
+</div>
+
+<ul>
+  <li *ngFor="let livro of listaDeLivros">
+    
+    {{ livro.id }} - {{ livro.nome }}
+    
+    <button (click)="remover(livro.id)">Excluir</button>
+    <button (click)="editar(livro.id)">editar</button>
+
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
